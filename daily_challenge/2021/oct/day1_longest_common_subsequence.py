@@ -4,6 +4,7 @@ class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         return self.find_longest(text1, text2, 0, 0, {})
     
+    # O(m * n) where m = len of str1 and n = len of str2 when memoized else O(2 ^ (m + n))
     def find_longest(self, t1, t2, i, j, memo):
         if (i, j) in memo:
             return memo[i, j]
@@ -16,6 +17,7 @@ class Solution:
         return memo[i, j]
 
 
+    # O(m * n) where m = len of str1 and n = len of str2
     def longestCommonSubsequenceDP(self, str1: str, str2: str) -> int:
         matrix = [[0 for _ in range(len(str1) + 1)] for _ in range(len(str2) + 1)]
         res = []
